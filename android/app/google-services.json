@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "526508297834",
+    "firebase_url": "https://loja-virtual-ebbb4.firebaseio.com",
+    "project_id": "loja-virtual-ebbb4",
+    "storage_bucket": "loja-virtual-ebbb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526508297834:android:0d059f48c5ff68db510413",
+        "android_client_info": {
+          "package_name": "br.com.ciolfi.loja_virtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526508297834-tsgjdvpvaov92u3kdj7ja7jt67n1bgqt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwmGXpZs_ak6_xtkWxYMN_v5mm8tXZymo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526508297834-tsgjdvpvaov92u3kdj7ja7jt67n1bgqt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
