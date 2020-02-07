@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "526508297834-2r9a6hmsi3jvovnb6eqrqgvv97uvvtss.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ciolfi.loja_virtual",
+            "certificate_hash": "2119a9a6593bbd90c7176287e23b33c2b6658a6e"
+          }
+        },
+        {
           "client_id": "526508297834-tsgjdvpvaov92u3kdj7ja7jt67n1bgqt.apps.googleusercontent.com",
           "client_type": 3
         }

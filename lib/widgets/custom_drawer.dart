@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/model/user_model.dart';
+import 'package:loja_virtual/screens/login_screen.dart';
 import 'package:loja_virtual/tiles/drawer_tile.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class CustomDrawer extends StatelessWidget {
 
@@ -47,30 +50,45 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                         left: 0.0,
                         bottom: 0.0,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              "Olá",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.0
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                  print("teste");
-                              },
-                              child: Text(
-                                "Entre ou cadastre -se >",
-                                style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold
+                        child: ScopedModelDescendant<UserModel>(
+                           builder: (context, child, model) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Olá ${!model.isLoggedIn() ? "" : model.userData["name"]}",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0
+                                  ),
                                 ),
-                              ),
-                            )
-                          ],
+                                GestureDetector(
+                                  onTap: () {
+                                    if(!model.isLoggedIn()){
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) => LoginScreen()
+                                          )
+                                      );
+                                    }else{
+                                      model.singOut();
+                                    }
+
+                                  },
+                                  child: Text(
+                                    !model.isLoggedIn() ?
+                                    "Entre ou cadastre -se >"
+                                    : "Sair",
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                )
+                              ],
+                            );
+                           }
                         )
                     )
                   ],
@@ -78,8 +96,11 @@ class CustomDrawer extends StatelessWidget {
               ),
               Divider(),
               DrawerTile(Icons.home, "Início", pageController,0),
+              SizedBox(height: 16.0,),
               DrawerTile(Icons.list, "Produtos", pageController,1),
+              SizedBox(height: 16.0,),
               DrawerTile(Icons.location_on, "Lojas", pageController,2),
+              SizedBox(height: 16.0,),
               DrawerTile(Icons.playlist_add_check, "Meus Pedidos", pageController,3),
             ],
           )
